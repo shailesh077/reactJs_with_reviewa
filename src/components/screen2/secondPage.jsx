@@ -21,7 +21,7 @@ function SecondPage() {
   const [selectedEmoji, setSelectedEmoji] = useState(null);
   const [timeLeft, setTimeLeft] = useState(120); // 2 minutes = 120 seconds
   const [submissionTime, setSubmissionTime] = useState(null);
-  const [emojiColor, setEmojiColor] = useState("");
+  
 
   const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ function SecondPage() {
   const handleEmojiClick = (emojiId) => {
     setSelectedEmoji(emojiId);
     setSubmissionTime(timeLeft);
-    setEmojiColor("yellow");
+    
   };
 
   const handleNextQuestion = () => {
@@ -73,7 +73,7 @@ function SecondPage() {
         <h2 className='text'><b>Overall Satisfaction</b></h2>
         <p className='text'>How satisfied are you with your overall experience with our credit card?</p>
       </div>
-      <div style={{ backgroundColor: emojiColor }}></div>
+      
       <div className="Emojis">
         {emojis.map((emoji) => (
           <span

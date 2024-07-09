@@ -19,7 +19,7 @@ function ThirdPage() {
   const [selectedEmoji, setSelectedEmoji] = useState(null);
   const [timeLeft, setTimeLeft] = useState(120);
   const [submissionTime, setSubmissionTime] = useState(null);
-  const [emojiColor, setEmojiColor] = useState()
+  
 
   const navigate = useNavigate()
 
@@ -42,7 +42,7 @@ function ThirdPage() {
   const handleEmojiClick = (emoji) => {
     setSelectedEmoji(emoji);
     setSubmissionTime(timeLeft);
-    setEmojiColor("yellow")
+    
   };
   const handleNextQuestion = () => {
     if (selectedEmoji !== null) {
@@ -73,7 +73,7 @@ function ThirdPage() {
         <h2 className='text'><b>Interest Rates and Fees</b></h2>
         <p className='text'>How would you rate the competitiveness of our interest rates and fees?</p>
       </div>
-      <div style={{ backgroundColor: emojiColor }} />
+      
       <div className="Emojis"  >
         {emojis.map((emoji) => (
           <span

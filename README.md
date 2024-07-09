@@ -1,70 +1,201 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Review App
 
-## Available Scripts
+I have created a review page with the help of React JS
 
-In the project directory, you can run:
 
-### `npm start`
+## Authors
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [@Shailesh Vishwakarma](https://www.github.com/shailesh077)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Insert gif or link to demo
 
-### `npm run build`
+https://github.com/shailesh077/reactJs_with_reviewa.git
+https://reactjs-with-reviewa-2.onrender.com/
+## Deployment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To deploy this project run
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  npx create-react-app my-reviewapp
+```
+I have create my project in reactjs
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- yellow mode toggle
+- Live previews
+- Fullscreen mode
+- store data localHost live
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install my-project with npm
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+  npx create-react-app my-reviewapp
+  cd my-reviewapp
+```
+    
+## Lessons Learned
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+From this project, I got to learn a lot about how to hook, how to create UI in React and improved my problem solving skills. In this project, I also got to know about local storage and how we can store data in local storage.
 
-## Learn More
+I faced many problems while making the project like making a stop watch and storing the time on clicking the submit button and hovering over the star and storing it in the database.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Related
 
-### Code Splitting
+Here are some related projects
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[Live](https://reactjs-with-reviewa-2.onrender.com/)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Run Locally
 
-### Making a Progressive Web App
+Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+  npm install
+  npm i react-router-dom
+  npm install --save react-router-dom
+  npm i nodemon
+```
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Tech Stack
 
-### `npm run build` fails to minify
+**Client:** React,HTML,CSS,Javascript
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Server:** Node 
+
+
+## Usage/Examples
+Screen 1:
+
+Implement a click event handler for the "Click to Start" button.
+
+```javascript
+<button className="button" onClick={goToNextPage}>Click to Start</button>
+    </div>
+```
+
+•When the button is clicked, it should redirect the user to Screen 2.
+
+```javascript
+const goToNextPage = () => {
+    navigate('/secondPage');
+  };
+```
+Screen 2:
+Implement a hover effect on emojis.
+using CSS class 
+
+```javascript
+<span
+            key={emoji.id}
+            className={`emoji ${selectedEmoji === emoji.id ? 'selected' : ''}`}
+            onClick={() => handleEmojiClick(emoji.id)}
+          >
+            {emoji.emoji}
+          </span>
+```
+Implement a timer on the right side.
+using useEffect and chatGPT
+```javascript
+useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          // Redirect to next question if time runs out
+          handleNextQuestion();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+```
+o	The timer should count down from 2 minutes.
+
+o	If the user doesn't submit a response within 2 minutes, redirect to the next question.
+-->I have set conditions in this file with the help of which when the time is over inside it, then navigate will be called and I will go to the next page
+```javascript
+const handleNextQuestion = () => {
+    if (selectedEmoji !== null) {
+      const newSubmission = {
+        question: 'Overall Satisfaction',
+        emoji: selectedEmoji,
+        time: formatTime(120 - submissionTime),
+      };
+      setSubmission(newSubmission);
+      console.log('Submission:', newSubmission);
+    }
+    // Logic to go to the next question
+    navigate('/thirdPage');
+  };
+```
+Screen 3: 
+
+Implement functionality to select stars.
+
+•	If the user selects the 4th star, automatically select the 1st to 4th stars.
+
+-> used keys to render the data which gave me the hover effect 
+```javascript
+<span
+            key={emoji.id}
+            className={`emoji ${selectedRating >= emoji.id ? 'selected' : ''}`}
+            onClick={() => handleEmojiClick(emoji.id)}
+            onMouseEnter={()=>handleemojiname(emoji.emoji)}
+            
+          >
+            <img className="Emoji" src={emoji.src}  />{emoji.emoji}
+          </span>
+    </div>
+```
+Screen 4:
+
+Fetch data from the JSON file where survey responses are stored.
+•	Display the fetched data on this screen.
+
+--> Whatever data we have received in Json format, now I have to store that data in a database so that I can see it on the view page or the result page. For this, I use a local database. This gives me live data and displays that data on the result page.
+
+```javascript
+export const setSubmission = (newSubmission) => {
+    const submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+    submissions.push(newSubmission);
+    localStorage.setItem('submissions', JSON.stringify(submissions));
+};
+
+export const getSubmissions = () => {
+    return JSON.parse(localStorage.getItem('submissions')) || [];
+};
+    </div>
+```
+
+
+```javascript
+  useEffect(() => {
+    const fetchSubmissions = async () => {
+      try {
+        const submissionData = await getSubmissions(); // Call the function to get the data
+        // Filter out any null or undefined entries
+        const validData = submissionData.filter(item => item != null);
+        // Slice to get only the latest 3 entries
+        const latestData = validData.slice(-3);
+        setData(latestData);
+      } catch (error) {
+        console.error('Error fetching submissions:', error);
+      }
+    };
+
+    fetchSubmissions();
+  }, []);
+
+```
